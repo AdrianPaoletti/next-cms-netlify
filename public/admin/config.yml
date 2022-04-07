@@ -32,4 +32,18 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Date", name: "date", widget: "string" }
           - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - label: "Objeto"
+        name: "objeto"
+        widget: "list"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Date", name: "date", widget: "string" }
+          - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+          - label: "objetodeObjeto"
+            name: "objetodeObjeto"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Thumbnail", name: "thumbnail", widget: "image" }
         # The fields for front matter. You will need to modify fields according to your project.
