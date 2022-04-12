@@ -32,37 +32,3 @@ collections:
       # - { label: "Featured Image", name: "thumbnail", widget: "image" }
       # - { label: "Author", name: "author", widget: "string", default: "Admin" }
       # - { label: "Body", name: "body", widget: "markdown" }
-  - name: "array" # Used in routes, e.g., /admin/collections/blog
-    label: "Bt" # Used in the UI
-    folder: "content/pruebaArray" # The path to the folder where the markdown files are stored
-    create: true # Allow users to create new markdown files.
-    i18n:
-      structure: single_file
-      locales: [en, es, ch]
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
-      - { label: "Date", name: "date", widget: "string", i18n: true }
-      - { label: "Thumbnail", name: "thumbnail", widget: "image", i18n: true }
-      - label: "Array"
-        name: "array"
-        widget: "list"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Date", name: "date", widget: "string" }
-          - { label: "Thumbnail", name: "thumbnail", widget: "image" }
-      - label: "Objeto"
-        name: "objeto"
-        widget: "list"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Date", name: "date", widget: "string" }
-          - { label: "Thumbnail", name: "thumbnail", widget: "image" }
-          - label: "objetodeObjeto"
-            name: "objetodeObjeto"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Date", name: "date", widget: "string" }
-              - { label: "Thumbnail", name: "thumbnail", widget: "image" }
-        # The fields for front matter. You will need to modify fields according to your project.
