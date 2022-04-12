@@ -3,14 +3,30 @@ backend:
   branch: main
 media_folder: public/img #images that are uploaded via Netlify Cms interface will be stored in this folder
 public_folder: img #I dont know
+i18n:
+  # Required and can be one of multiple_folders, multiple_files or single_file
+  # multiple_folders - persists files in `<folder>/<locale>/<slug>.<extension>`
+  # multiple_files - persists files in `<folder>/<slug>.<locale>.<extension>`
+  # single_file - persists a single file in `<folder>/<slug>.<extension>`
+  structure: multiple_folders
+
+  # Required - a list of locales to show in the editor UI
+  locales: [en, es, ch]
+
+  # Optional, defaults to the first item in locales.
+  # The locale to be used for fields validation and as a baseline for the entry.
+  default_locale: es
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "BlogPost" # Used in the UI
+    i18n:
+      structure: single_file
+      locales: [en, es, ch]
     folder: "content/home" # The path to the folder where the markdown files are stored
     create: true # Allow users to create new markdown files.
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for front matter. You will need to modify fields according to your project.
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
       # - { label: "Description", name: "description", widget: "string" }
       # - { label: "Download", name: "download", widget: "string" }
       # - { label: "Featured Image", name: "thumbnail", widget: "image" }
@@ -20,11 +36,14 @@ collections:
     label: "Bt" # Used in the UI
     folder: "content/pruebaArray" # The path to the folder where the markdown files are stored
     create: true # Allow users to create new markdown files.
+    i18n:
+      structure: single_file
+      locales: [en, es, ch]
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "string" }
-      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Date", name: "date", widget: "string", i18n: true }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", i18n: true }
       - label: "Array"
         name: "array"
         widget: "list"
@@ -41,7 +60,7 @@ collections:
           - { label: "Thumbnail", name: "thumbnail", widget: "image" }
           - label: "objetodeObjeto"
             name: "objetodeObjeto"
-            widget: "list"
+            widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Date", name: "date", widget: "string" }
