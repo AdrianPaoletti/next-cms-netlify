@@ -16,7 +16,7 @@ collections:
     files:
       - name: about
         label: About Page
-        file: site/content/about.yml
+        file: content/home
         i18n: true
         fields:
           - { label: Title, name: title, widget: string, i18n: true }
