@@ -8,15 +8,13 @@ i18n:
   locales: [en, es, ch]
   default_locale: es
 collections:
-  - name: pages
-    label: Pages
-    i18n:
-      structure: single_file
-      locales: [en, es, ch]
-    files:
-      - name: about
-        label: About Page
-        file: content/home
+  - label: Home
+    name: home
+    folder: content/home
+    create: true
+    i18n: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
         i18n: true
-        fields:
-          - { label: Title, name: title, widget: string, i18n: true }
