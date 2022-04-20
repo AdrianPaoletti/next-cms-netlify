@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useEffect } from "react";
+import CMS from "netlify-cms-app";
+import { es } from "netlify-cms-locales";
 
 export default function Home() {
   useEffect(() => {
@@ -15,6 +17,8 @@ export default function Home() {
       });
     }
   }, []);
+
+  CMS.registerLocale("es", es);
   return (
     <div className={styles.container}>
       <Head>
