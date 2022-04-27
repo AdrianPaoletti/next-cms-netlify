@@ -3,12 +3,40 @@ backend:
   branch: main
 media_folder: public/img #images that are uploaded via Netlify Cms interface will be stored in this folder
 public_folder: img #I dont know
+
+i18n:
+  # Required and can be one of multiple_folders, multiple_files or single_file
+  # multiple_folders - persists files in `<folder>/<locale>/<slug>.<extension>`
+  # multiple_files - persists files in `<folder>/<slug>.<locale>.<extension>`
+  # single_file - persists a single file in `<folder>/<slug>.<extension>`
+  structure: multiple_files
+
+  # Required - a list of locales to show in the editor UI
+  locales: [en, es]
+
+  # Optional, defaults to the first item in locales.
+  # The locale to be used for fields validation and as a baseline for the entry.
+  default_locale: es
 collections:
   - label: Home
     name: home
     folder: content/home
     create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    i18n: true
     fields:
-      - label: Title
-        name: title
-        widget: object
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          i18n: duplicate,
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          i18n: true,
+        }
+      - { label: "Body", name: "body", widget: "markdown", i18n: true }
