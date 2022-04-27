@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useEffect } from "react";
-import { de } from "netlify-cms-locales";
 
 export default function Home() {
   useEffect(() => {
